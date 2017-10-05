@@ -62,10 +62,7 @@ resource "aws_instance" "swarm-node" {
 
     provisioner "remote-exec" {
       inline = [
-        "sudo docker swarm join ${aws_instance.swarm-manager.0.private_ip}:2377 --token $(docker -H ${aws_instance.swarm-manager.0.private_ip} swarm join-token -q worker)",
-        "sudo apt install wget",
-        "wget -O Dynatrace-OneAgent-Linux-1.127.133.sh \"https://cvq20253.live.dynatrace.com/api/v1/deployment/installer/agent/unix/default/latest?Api-Token=gz05CcyvQUypnhWQt0Jyg&arch=x86\"",
-        "sudo /bin/sh Dynatrace-OneAgent-Linux-1.127.133.sh APP_LOG_CONTENT_ACCESS=1"
+        "sudo docker swarm join ${aws_instance.swarm-manager.0.private_ip}:2377 --token $(docker -H ${aws_instance.swarm-manager.0.private_ip} swarm join-token -q worker)"
       ]
     }
 
