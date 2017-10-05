@@ -26,7 +26,7 @@ services:
         constraints: [node.role == manager]
 
   python_backend:
-    image: sachsenhofer/python-backend:latest
+    image: sachsenhofer/python_backend:latest
     ports:
       - 5000:5000
     networks:
